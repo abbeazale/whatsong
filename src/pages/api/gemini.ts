@@ -34,10 +34,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         console.log('Image uploaded successfully', uploadImage);
 
         const result = await model.generateContent([
-            `think of a description for this photo and then sugguest a song that matches the vibe. 
+            `think of a description for this photo and then sugguest a song that matches the description. 
             ${description} I want it to be a ${genre} song from 
             ${startDecade} to ${endDecade} from ${artist}. Just respond in the format of:
-            "Song name: [song name] artist: [artist name]". and dont include the description 
+            "Song name: [song name] Artist: [artist name]". and dont include the description 
             in the reply`,
             {
                 fileData: {

@@ -16,7 +16,7 @@ interface Prompt {
 const genres = ["Pop", "Rock", "Hip Hop", "Electronic", "Classical","Latin", "Jazz", "Country", "R&B"];
 
 // Define the decades array
-const decades = ["1920", "1930", "1940", "1950", "1960", "1970", "1980", "1990", "2000", "2010", "2020"];
+const decades = [ "1960", "1970", "1980", "1990", "2000", "2010", "2020"];
 
 function toBase64(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -99,119 +99,166 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-4">
-      <h1 className="text-6xl font-bold mb-8 text-center">The Perfect Song</h1>
-      
-      <form className="w-full max-w-md space-y-4 flex flex-col items-center">
+    <div className="min-h-screen bg-gradient-to-br from-black to-gray-900 text-white flex flex-col items-center justify-center p-4">
+      <h1 className="text-5xl font-extrabold mb-10 text-center text-white tracking-tight">
+        The Perfect Song
+      </h1>
+  
+      <form className="w-full max-w-lg space-y-6 flex flex-col items-center">
         {error && (
-          <div className="w-full text-red-500 text-center font-bold mb-4">
+          <div className="w-full text-red-400 bg-red-900 p-3 rounded text-center font-semibold mb-6">
             {error}
           </div>
         )}
-
+  
         {imagePreview && (
-          <div className="mb-4">
-            <Image src={imagePreview} alt="Uploaded image" width={400} height={400} className="rounded" />
+          <div className="mb-6 rounded-lg overflow-hidden shadow-lg">
+            <Image
+              src={imagePreview}
+              alt="Uploaded image"
+              width={400}
+              height={400}
+              className="rounded"
+            />
           </div>
         )}
-        
+  
         <div className="w-full">
-          <label htmlFor="image" className="block mb-2 text-center">Upload an image</label>
+          <label
+            htmlFor="image"
+            className="block mb-2 text-med font-medium text-center"
+          >
+            Upload an Image
+          </label>
           <input
             type="file"
             id="image"
             accept="image/*"
             onChange={handleImageUpload}
-            className="w-full p-2 bg-gray-800 rounded"
+            className="w-full p-3 bg-gray-800 rounded border border-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
           />
         </div>
-        
+  
         <div className="w-full">
-          <label htmlFor="genre" className="block mb-2 text-center">Genre</label>
+          <label
+            htmlFor="genre"
+            className="block mb-2 text-med font-medium text-center"
+          >
+            Genre
+          </label>
           <select
             id="genre"
             name="genre"
             value={prompt.genre}
             onChange={handleInputChange}
-            className="w-full p-2 bg-gray-800 rounded text-white"
+            className="w-full p-3 bg-gray-800 rounded border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
           >
             <option value="">Select a genre</option>
             {genres.map((genre) => (
-              <option key={genre} value={genre}>{genre}</option>
+              <option key={genre} value={genre}>
+                {genre}
+              </option>
             ))}
           </select>
         </div>
-        
+  
         <div className="w-full">
-          <label htmlFor="artist" className="block mb-2 text-center">Artist</label>
+          <label
+            htmlFor="artist"
+            className="block mb-2 text-med font-medium text-center"
+          >
+            Artist
+          </label>
           <input
             type="text"
             id="artist"
             name="artist"
             value={prompt.artist}
             onChange={handleInputChange}
-            className="w-full p-2 bg-gray-800 rounded"
+            className="w-full p-3 bg-gray-800 rounded border border-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
           />
         </div>
-        
+  
         <div className="w-full flex space-x-4">
           <div className="w-1/2">
-            <label htmlFor="startDecade" className="block mb-2 text-center">Start Decade</label>
+            <label
+              htmlFor="startDecade"
+              className="block mb-2 text-med font-medium text-center"
+            >
+              Start Decade
+            </label>
             <select
               id="startDecade"
               name="startDecade"
               value={prompt.startDecade}
               onChange={handleInputChange}
-              className="w-full p-2 bg-gray-800 rounded text-white"
+              className="w-full p-3 bg-gray-800 rounded border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
             >
               <option value="">Select</option>
               {decades.map((decade) => (
-                <option key={decade} value={decade}>{decade}s</option>
+                <option key={decade} value={decade}>
+                  {decade}s
+                </option>
               ))}
             </select>
           </div>
+  
           <div className="w-1/2">
-            <label htmlFor="endDecade" className="block mb-2 text-center">End Decade</label>
+            <label
+              htmlFor="endDecade"
+              className="block mb-2 text-med font-medium text-center"
+            >
+              End Decade
+            </label>
             <select
               id="endDecade"
               name="endDecade"
               value={prompt.endDecade}
               onChange={handleInputChange}
-              className="w-full p-2 bg-gray-800 rounded text-white"
+              className="w-full p-3 bg-gray-800 rounded border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
             >
               <option value="">Select</option>
               {decades.map((decade) => (
-                <option key={decade} value={decade}>{decade}s</option>
+                <option key={decade} value={decade}>
+                  {decade}s
+                </option>
               ))}
             </select>
           </div>
         </div>
-        
+  
         <div className="w-full">
-          <label htmlFor="description" className="block mb-2 text-center">Description</label>
+          <label
+            htmlFor="description"
+            className="block mb-2 text-med font-medium text-center"
+          >
+            Description
+          </label>
           <textarea
             id="description"
             name="description"
             value={prompt.description}
             onChange={handleInputChange}
-            className="w-full p-2 bg-gray-800 rounded resize-none"
+            className="w-full p-3 bg-gray-800 rounded border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-500 resize-none"
             rows={3}
           />
         </div>
-        
+  
         <button
           type="button"
           onClick={generateSongs}
-          className="w-full bg-white text-black font-bold py-2 px-4 rounded hover:bg-gray-200"
+          className="w-full bg-gray-50 text-black font-semibold py-3 px-6 rounded-lg hover:bg-gray-200 transition-all ease-in-out"
         >
           Submit
         </button>
       </form>
-
+  
       {generatedDescription && (
-        <div className="mt-8 w-full max-w-md">
-          <h2 className="text-2xl font-bold mb-4">Generated Description:</h2>
-          <p className="bg-gray-800 p-4 rounded whitespace-pre-wrap">{generatedDescription}</p>
+        <div className="mt-10 w-full max-w-lg">
+          <h2 className="text-2xl font-bold mb-4 text-center">Song Suggestion:</h2>
+          <p className="bg-gray-800 p-4 rounded-lg text-white whitespace-pre-wrap shadow-md">
+            {generatedDescription}
+          </p>
         </div>
       )}
     </div>
