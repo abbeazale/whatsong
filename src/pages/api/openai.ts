@@ -12,7 +12,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(405).json({message: 'Method not allowed'});
     }
 
-    const { image, genre, artist, startDecade, endDecade } = req.body;
+    //add image to the requst for openAI requests 
+    const {  genre, artist, startDecade, endDecade } = req.body;
     
     try{
         const message = await openai.chat.completions.create({

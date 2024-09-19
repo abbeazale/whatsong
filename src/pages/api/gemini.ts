@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { GoogleAIFileManager, UploadFileResponse } from "@google/generative-ai/server";
+import { GoogleAIFileManager} from "@google/generative-ai/server";
 import { NextApiRequest, NextApiResponse } from "next";
 import path from 'path';
 import fs from 'fs';
