@@ -9,8 +9,6 @@ export async function uploadPic(image: string): Promise<{ url: string; type: str
   } else if (process.env.CLOUDINARY_CLOUD_NAME || process.env.CLOUDINARY_API_KEY || process.env.CLOUDINARY_API_SECRET) {
     console.log('Cloudinary environment variables are set');
   }
-  
-  console.log("CLOUDINARY_CLOUD_NAME: ", process.env.CLOUDINARY_CLOUD_NAME);
 
   cloudinary.config({ 
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
