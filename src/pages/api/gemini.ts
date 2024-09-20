@@ -37,7 +37,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(200).json({ description: result.response.text() });
 
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error Gemini:', error);
         res.status(500).json({ message: 'Error generating description' });
     }
 }
