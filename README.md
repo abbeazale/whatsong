@@ -51,7 +51,3 @@ Ensure you have the following environment variables set up:
 - `CLOUDINARY_API_SECRET`: Your Cloudinary API secret
 - `GEMINI_APi`: Your Google Gemini Vision API key
 
-## Privacy and Terms of Use
-
-Please use this application responsibly. Respect copyright laws and the privacy of others when uploading images and sharing content.
-
