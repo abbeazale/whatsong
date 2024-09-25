@@ -1,40 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# What Song
+
+Quick Website I made for my girlfrined since she always asks what song to add with her instagram stories. 
+## Features
+
+- **Image Upload**: Submit an image 
+- **Music Search Customization**:
+  - Select a genre to narrow down the musical style.
+  - Specify a time frame to set the mood (e.g., 80s, 90s, modern).
+  - Optionally give an artist name you want it by.
+- **AI-Powered Image Analysis**: Uses Google's Gemini Vision to analyze the vibe of the image.
+- **Smart Song Matching**: Searches for and suggests songs that match the vibe of your image based on your preferences.
+- **Social Media Integration**: Easily share your image-music combination on popular social media platforms. (coming soon)
+
+## How It Works
+
+1. **Upload**: Submit your image through the user-friendly interface. The image is securely uploaded to Cloudinary.
+2. **Analyze**: Google's Gemini Vision API analyzes the uploaded image to determine its mood and content.
+3. **Customize**: Choose your preferred genre and time frame for the music search.
+4. **Match**: Based on the image analysis and your preferences, the app searches for and suggests matching songs.
+5. **Preview**: Listen to the suggested songs and see how they pair with your image.
+6. **Share**: Post your perfect image-music combo directly to your favorite social media platforms.
+
+## Technology Stack
+
+- Frontend: Next.js with TypeScript
+- Backend: Node.js
+- Image Upload: Cloudinary
+- Image Analysis: Google's Gemini Vision API
+- Hosting: Vercel
+
+## Development
+
+Made this quick on my own if you want to add to it youre always welcome
 
 ## Getting Started
 
-First, run the development server:
+To run this project locally:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Set up environment variables
+4. Run the development server with `npm run dev`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment Variables
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Ensure you have the following environment variables set up:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- `CLOUDINARY_CLOUD_NAME`: Your Cloudinary cloud name
+- `CLOUDINARY_API_KEY`: Your Cloudinary API key
+- `CLOUDINARY_API_SECRET`: Your Cloudinary API secret
+- `GEMINI_APi`: Your Google Gemini Vision API key
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Privacy and Terms of Use
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Please use this application responsibly. Respect copyright laws and the privacy of others when uploading images and sharing content.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
