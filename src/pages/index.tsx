@@ -49,6 +49,7 @@ export default function Home() {
     }
   };
 
+  //sets the value of the prompt object to the value of the input
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setPrompt({ ...prompt, [name]: value });
@@ -65,16 +66,13 @@ export default function Home() {
       prompt.artist = "any artist"
     }
 
-
-
-
     if (!prompt.image || !prompt.genre || !prompt.artist || !prompt.startDecade || !prompt.endDecade) {
       setError("Please fill out all options");
       return;
     }
 
     setError(null);
-    
+    console.log()
     try {
       const response = await fetch('/api/gemini', {
         method: 'POST',
@@ -85,6 +83,9 @@ export default function Home() {
         body: JSON.stringify(prompt),
       });
   
+      console.log(response);
+      console.log(prompt);
+
       if (!response.ok) {
         throw new Error('Failed to generate description');
       }
