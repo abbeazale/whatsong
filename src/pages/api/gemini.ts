@@ -6,13 +6,13 @@ import fetch from 'node-fetch';
 export const config = {
     api: {
       bodyParser: {
-        sizeLimit: '5mb', // Adjust the limit as needed
+        sizeLimit: '5mb', 
       },
     },
   };
 
 const genai = new GoogleGenerativeAI(process.env.GEMINI_API || "");
-const model = genai.getGenerativeModel({ model: "gemini-1.5-pro" });
+const model = genai.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
